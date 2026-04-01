@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Especial de Pascuas - Huevos Artesanales</title>
-    
+
     <!-- Meta etiquetas para previsualización en WhatsApp y Redes Sociales (Open Graph) -->
     <meta property="og:title" content="Especial de Pascuas - Huevos Artesanales">
-    <meta property="og:description" content="¡Hacé tu pedido para estas pascuas! Huevos de Pascua artesanales rellenos de Oreo, Chocolinas, Brownie y más. ✨">
+    <meta property="og:description"
+        content="¡Hacé tu pedido para estas pascuas! Huevos de Pascua artesanales rellenos de Oreo, Chocolinas, Brownie y más. ✨">
     <meta property="og:type" content="website">
     <!-- IMPORTANTE: Para que WhatsApp muestre la imagen, el link debe ser el de tu página ya publicada en internet -->
     <!-- Ejemplo: content="https://tu-sitio-web.com/img/huevo-chocolinas.png" -->
-    <meta property="og:image" content="https://especial-pascuas.vercel.app/img/huevo-chocolinas.png"> 
+    <meta property="og:image" content="https://especial-pascuas.vercel.app/img/huevo-chocolinas.png">
     <meta property="og:url" content="https://especial-pascuas.vercel.app/">
-    
+
     <!-- Incluimos tipografías modernas y elegantes de Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
@@ -64,6 +65,33 @@
             position: relative;
             border: 1px solid rgba(196, 164, 132, 0.2);
             pointer-events: auto;
+        }
+
+        /* --- Hero de video --- */
+        .video-hero {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            background-color: #1a0a00;
+            overflow: hidden;
+        }
+
+        .video-hero video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-gradient {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            pointer-events: none;
+            z-index: 5;
         }
 
         /* --- Estilos para el carrusel de imágenes --- */
@@ -328,6 +356,10 @@
                 font-size: 15px;
             }
 
+            .video-hero {
+                height: 240px;
+            }
+
             .product-image-container {
                 height: 220px;
             }
@@ -348,23 +380,12 @@
     <div class="card-container">
         <div class="card">
 
-            <!-- Carrusel de Imágenes de Productos -->
-            <div class="product-image-container">
-                <div class="slider" id="productSlider">
-                    <!-- ATENCIÓN: Reemplaza ESTAS imágenes con las tuyas cambiando el valor de src="" -->
-                    <!-- Ejemplo con imagen local: src="huevo-chocolinas.jpg" -->
-                    <div class="slide">
-                        <img src="img/huevo-chocolinas.png" alt="Huevo de Pascua Chocolinas" loading="lazy">
-                    </div>
-                    <div class="slide">
-                        <img src="img/huevo-oreo.png" alt="Huevo de Pascua Oreo" loading="lazy">
-                    </div>
-                </div>
-                <div class="image-gradient"></div>
-                <div class="slider-nav">
-                    <div class="slider-dot active" onclick="scrollToSlide(0)"></div>
-                    <div class="slider-dot" onclick="scrollToSlide(1)"></div>
-                </div>
+            <!-- Video Portada -->
+            <div class="video-hero">
+                <video autoplay muted loop playsinline preload="auto" poster="img/huevo-chocolinas.png">
+                    <source src="img/video-promocional.mp4" type="video/mp4">
+                </video>
+                <div class="video-gradient"></div>
             </div>
 
             <div class="header">
@@ -376,7 +397,8 @@
                 </svg>
 
                 <p class="greeting">
-                    "¡Hola! Soy Delfina, tengo 15 años y estoy súper feliz de presentarles mi proyecto de pascuas. Preparo todos estos huevos artesanalmente y con mucho amor para vos."
+                    "¡Hola! Soy Delfina, tengo 15 años y estoy súper feliz de presentarles mi emprendimiento de pascuas.
+                    Preparo todos estos huevos artesanalmente y con mucho amor para vos."
                 </p>
 
                 <h1 class="title">Huevos<br>de Pascua</h1>
@@ -401,6 +423,23 @@
                     <span class="price">$7000</span>
                 </li>
             </ul>
+
+            <!-- Carrusel de Imágenes de Productos -->
+            <section class="product-image-container">
+                <div class="slider" id="productSlider">
+                    <div class="slide">
+                        <img src="img/huevo-chocolinas.png" alt="Huevo de Pascua Chocolinas" loading="lazy">
+                    </div>
+                    <div class="slide">
+                        <img src="img/huevo-oreo.png" alt="Huevo de Pascua Oreo" loading="lazy">
+                    </div>
+                </div>
+                <div class="image-gradient"></div>
+                <div class="slider-nav">
+                    <div class="slider-dot active" onclick="scrollToSlide(0)"></div>
+                    <div class="slider-dot" onclick="scrollToSlide(1)"></div>
+                </div>
+            </section>
 
             <div class="footer">
                 <svg class="sparkles sparkle-4 icon-star" viewBox="0 0 24 24">
